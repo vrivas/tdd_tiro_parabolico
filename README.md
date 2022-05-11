@@ -6,9 +6,21 @@ Este ejemplo muestra cómo podemos calcular las fórmulas involucradas en un tir
 
 Las fórmulas están calculas siguiendo las indicaciones encontradas en: https://www.areaciencias.com/fisica/tiro-parabolico-formulas/ 
 
+### Creación del proyecto desde el código descargado de GitHub
+Para poder usar la plantilla del proyecto y hacer los ejercicios, es impresincidible que tengas instalado algún JDK en tu ordenador. Además, tendrás que instalar en VS Code la extensión denominada: **Extension Pack for Java**, la cual nos instalará las siguientes 6 extensiones:
+    * Language Support for Java™ by Red Hat
+    * Debugger for Java
+    * Test Runner for Java (Run & Debug JUnit/TestNG Test Cases)
+    * Maven for Java
+    * Project Manager for Java
+    * Visual Studio IntelliCode
+
+Una vez instalado todo el software necesario, clona el repositorio donde está la plantilla para los ejercicios y modifica los ficheros: *src/main/java/es/ujaen/dagil/App.java* y *src/test/java/es/ujaen/dagil/AppTest.java* para ir realizando los ejercicios indicados en los comentarios.
+
+### Creación del proyecto desde cero.
 Para poder ejecutar este proyecto, es necesario instalar previamente algún JDK en nuestro ordenador, de forma que podamos compilar ficheros en Java.
 
-Una vez disponemos del JDK, los pasos para conseguir poner en marcha "desde cero" este proyecto en nuestro VS Code son:
+Una vez disponemos del JDK, los pasos que he seguido para conseguir poner en marcha "desde cero" este proyecto en nuestro VS Code son:
 
 1. Abrir VS Code
 2. Seleccionar en el menú superior:  *Archivo* -> *Nueva ventana*
@@ -30,3 +42,6 @@ Una vez disponemos del JDK, los pasos para conseguir poner en marcha "desde cero
     * A la pregunta sobre la versión, indico: *1.0*
     * A la pregunta Y: , indico *Y*  (o simplemente, pulso *Enter*)
 9. Finalmente, en la ventana que aparece abajo a la derecha, le indico que abra el directorio.
+
+
+###
