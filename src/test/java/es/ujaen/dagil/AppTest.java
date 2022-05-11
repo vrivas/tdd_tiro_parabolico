@@ -113,4 +113,36 @@ public class AppTest {
         assertEquals(14.23+10, App.calcular_Y_dado_T(0+10, 26, Math.toRadians(40), -9.8, 3.41/2), 0.1);
         assertEquals(14.23-10, App.calcular_Y_dado_T(0-10, 26, Math.toRadians(40), -9.8, 3.41/2), 0.1);
     }
+
+    @Test
+    public void calcular_Y_dado_X() {
+        // Valores del angulo que no estén entre 0 y PI/2 deben lanzar una excepción
+        try {
+            App.calcular_Y_dado_T(0, 0, Math.PI,-9.8, 0);
+            fail();
+        } catch (Exception e) {
+            System.err.println("calcular_Y_dado_X: " + e.getMessage());
+        }
+        // Valor de x_fin igual a x, debe devolver el mismo valor que y_ini
+        // hacemos un par de comprobaciones
+        assertEquals(10, App.calcular_Y_dado_X(22, 10, 29, 0, -9.8, 22), 0);
+        assertEquals(4, App.calcular_Y_dado_X(-5, 4, 12, 0, -9.8, -5), 0);
+
+
+        // Según https://www.areaciencias.com/fisica/tiro-parabolico-formulas/
+
+        // Para una velocidad de 26m/s, un ángulo de 40º, y x igual a 67.73/2, Y debe
+        // devolver 14.23m
+        assertEquals(14.23, App.calcular_Y_dado_X(0,0, 26, Math.toRadians(40), -9.8, 67.73/2), 0.1);
+ 
+        // Para una velocidad de 26m/s, un ángulo de 40º, y x igual a 67.73, Y debe
+        // devolver 0m
+        assertEquals(0, App.calcular_Y_dado_X(0,0, 26, Math.toRadians(40), -9.8, 0), 0.1);
+
+        // Si en vez de partir desde Y=0, damos otro valor, debe incrementarse en dicho
+        // valor
+        assertEquals(14.23+5, App.calcular_Y_dado_X(0,0+5, 26, Math.toRadians(40), -9.8, 67.73/2), 0.1);
+        assertEquals(14.23-5, App.calcular_Y_dado_X(0,0-5, 26, Math.toRadians(40), -9.8, 67.73/2), 0.1);
+
+    }
 }
