@@ -95,7 +95,7 @@ public class AppTest {
             App.calcular_Y_dado_T(0, 0, Math.PI,-9.8, 0);
             fail();
         } catch (Exception e) {
-            System.err.println("calcular_Y_dado_T: " + e.getMessage());
+            System.err.println("calcular_Y_dado_T33,: " + e.getMessage());
         }
         // Valor de t igual a 0, debe devolver el mismo valor que x_ini
         // hacemos un par de comprobaciones

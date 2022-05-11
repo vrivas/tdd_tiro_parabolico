@@ -1,5 +1,7 @@
 package es.ujaen.dagil;
 
+import java.util.Scanner;
+
 /**
  * Cálculo de fórmulas para tiro parabólico SIN rozamiento, CON gravedad.
  * Calculadas según:
@@ -62,7 +64,24 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Este programa calcula si un tiro parabólico impacta en un muro o no");
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.println("Introduce velocidad del disparo:");
+        double v_ini = myObj.nextDouble();
+
+        System.out.println("Introduce ángulo de disparo (entre 0 y 90):");
+        double angulo = Math.toRadians( myObj.nextDouble());
+
+        System.out.println("Introduce distancia a la que está el muro:");
+        double x_pos = myObj.nextDouble();
+
+        System.out.println("Introduce altura del muro:");
+        double altura = myObj.nextDouble();
+
+        boolean impacta = impacta_en_muro(0,0, v_ini, angulo, -9.8, x_pos, altura);
+
+        System.out.println((impacta?"Sí":"No")+" impacta en el muro");
     }
 
     /**
