@@ -42,7 +42,7 @@ public class App {
      * @param angulo Ángulo (expresado en radianes) con el que se lanza el
      *               proyectil.
      * @param x_fin  Posición final X para la que se quiere saber el tiempo en que la alcanzará.
-     * @post Si el resultado es <0, lanza una excepción de tipo ArithmeticException
+     * @post Si el coseno del angulo es 0, lanza una excepción de tipo ArithmeticException
      * 
      */
 
