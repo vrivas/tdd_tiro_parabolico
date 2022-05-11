@@ -21,7 +21,7 @@ public class App {
      * 
      */
 
-    public static double calcularX(final double x_ini, final double v_ini, final double angulo, final double t) {
+    public static double calcular_X_dado_T(final double x_ini, final double v_ini, final double angulo, final double t) {
         if (t < 0)
             throw (new ArithmeticException("El tiempo no puede ser negativo."));
         if (angulo < 0 || angulo > Math.PI / 2)
@@ -46,7 +46,7 @@ public class App {
      * 
      */
 
-    public static double calcularTParaX(final double x_ini, final double v_ini, final double angulo, final double x_fin) {
+    public static double calcular_T_dado_X(final double x_ini, final double v_ini, final double angulo, final double x_fin) {
 
         //double x = x_ini + v_ini * Math.cos(angulo) * t; 
         double t=(x_fin-x_ini)/(v_ini*Math.cos(angulo));
