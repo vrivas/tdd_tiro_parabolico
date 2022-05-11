@@ -118,5 +118,29 @@ public class App {
         return y;
     }
 
+     /**
+     * Calcula si el disparo impacta en un muro o no
+     * Consideramos el rozamiento nulo
+     * 
+     * @param X_ini Posición X inicial
+     * @param y_ini Posición Y inicial
+     * @param v_ini Velocidad inicial
+     * @param angulo Ángulo (expresado en radianes) con el que se lanza el proyectil.
+     * @param g Valor para la gravedad (normalmente -9.8)
+     * @param x_pos Valor de X en la que está el muro
+     * @param altura Altura del muro
+     *
+     * @post Si angulo<0 o angulo>pi/2, lanza una excepción de tipo ArithmeticException
+     * 
+     */
+
+    public static boolean impacta_en_muro(final double x_ini, final double y_ini, final double v_ini, final double angulo, final double g,
+            final double x_pos, final double altura) {
+        if (angulo < 0 || angulo > Math.PI / 2)
+            throw (new ArithmeticException("El ángulo debe estar entre 0 y PI/2"));
+        double y = calcular_Y_dado_X(x_ini, y_ini, v_ini, angulo, g, x_pos);
+        return y>=0 && y<=altura;
+    }
+
 
 }

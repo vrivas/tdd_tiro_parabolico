@@ -2,6 +2,7 @@ package es.ujaen.dagil;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -86,7 +87,7 @@ public class AppTest {
             App.calcular_Y_dado_T(0, 0, 0, -9.8, -1);
             fail();
         } catch (Exception e) {
-            System.err.println("calcularX: " + e.getMessage());
+            System.err.println("calcular_Y_dado_T: " + e.getMessage());
         }
         
         // Valores del angulo que no estén entre 0 y PI/2 deben lanzar una excepción
@@ -94,7 +95,7 @@ public class AppTest {
             App.calcular_Y_dado_T(0, 0, Math.PI,-9.8, 0);
             fail();
         } catch (Exception e) {
-            System.err.println("calcularX: " + e.getMessage());
+            System.err.println("calcular_Y_dado_T: " + e.getMessage());
         }
         // Valor de t igual a 0, debe devolver el mismo valor que x_ini
         // hacemos un par de comprobaciones
@@ -143,6 +144,27 @@ public class AppTest {
         // valor
         assertEquals(14.23+5, App.calcular_Y_dado_X(0,0+5, 26, Math.toRadians(40), -9.8, 67.73/2), 0.1);
         assertEquals(14.23-5, App.calcular_Y_dado_X(0,0-5, 26, Math.toRadians(40), -9.8, 67.73/2), 0.1);
+    }
 
+
+    @Test
+    public void impacta_en_muro() {
+        // Valores del angulo que no estén entre 0 y PI/2 deben lanzar una excepción
+        try {
+            App.impacta_en_muro(0, 0, 12, Math.PI,-9.8, 0,0);
+            fail();
+        } catch (Exception e) {
+            System.err.println("impacta_en_muro: " + e.getMessage());
+        }
+   
+        // Según https://www.areaciencias.com/fisica/tiro-parabolico-formulas/
+
+        // Para una velocidad de 26m/s, un ángulo de 40º, y x igual a 67.73/2, Y debe devolver 14.23m. 
+        // Por tanto valores mayores o iguales que 14.23 deben devolver true y valores fuera de ese rango deben devolver false
+        assertTrue(App.impacta_en_muro(0, 0, 26, Math.toRadians(40), -9.8, 67.73/2, 15));
+        assertTrue(App.impacta_en_muro(0, 0, 26, Math.toRadians(40), -9.8, 67.73/2, 22));
+
+        assertFalse(App.impacta_en_muro(0, 0, 26, Math.toRadians(40), -9.8, 67.73/2, 10));
+        assertFalse(App.impacta_en_muro(0, 0, 26, Math.toRadians(40), -9.8, 67.73/2, 14));
     }
 }
